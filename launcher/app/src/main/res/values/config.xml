@@ -412,6 +412,10 @@
          pictures in wallpapers/ ("01-dusk.jpg<TAB>Dusk over the peaks", one per line). A picture without a line
          shows no name. Can also be set with "wallpaper_captions": true in a theme's config.json. -->
     <bool name="wallpaper_captions">false</bool>
+    <!-- Slow camera motion over the wallpaper ("Ken Burns"): the picture zooms and drifts very gently while Home is
+         on screen, and stops when Home is hidden. A GPU transform of the picture already on screen, no redraw.
+         Off with reduced_motion. A theme can set "wallpaper_motion": true. Off by default. -->
+    <bool name="wallpaper_motion">false</bool>
     <!-- Rotating wallpapers grouped by the time of day, as JSON: {"morning": [file names], "evening": [...],
          "night": [...]}. While set, the rotation picks only from the group that fits now: morning from sunrise to
          noon, evening until half an hour after sunset, night the rest, with the sun at latitude and longitude (07:00

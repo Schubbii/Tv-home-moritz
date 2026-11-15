@@ -22,16 +22,15 @@ jobs:
       - uses: android-actions/setup-android@v3
         with:
           packages: platforms;android-34 build-tools;34.0.0
-      # Optional: ein fester Signaturschluessel, damit spaetere APKs sich ueber die installierte legen lassen.
-      # Secret DEBUG_KEYSTORE_BASE64 = base64 einer debug.keystore (Passwort "android", Alias "androiddebugkey").
-      # Ohne Secret signiert jeder Lauf mit einem neuen Schluessel (siehe README, "Updates").
-      - name: Signaturschluessel aus Secret
+      # Fester Signaturschluessel aus launcher/signing/, damit jede neue APK sich ueber die installierte legen laesst.
+      # Ein Secret DEBUG_KEYSTORE_BASE64 (base64 einer debug.keystore) hat Vorrang.
+      - name: Signaturschluessel
         env:
           KEYSTORE_B64: ${{ secrets.DEBUG_KEYSTORE_BASE64 }}
-        if: env.KEYSTORE_B64 != ''
         run: |
           mkdir -p ~/.android
-          printf '%s' "$KEYSTORE_B64" | base64 -d > ~/.android/debug.keystore
+          if [ -n "$KEYSTORE_B64" ]; then printf '%s' "$KEYSTORE_B64" | base64 -d > ~/.android/debug.keystore
+          else cp launcher/signing/debug.keystore ~/.android/debug.keystore; fi
       - name: Unit-Tests und Release-Build
         working-directory: launcher
         run: |

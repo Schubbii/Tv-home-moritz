@@ -1,5 +1,6 @@
 package com.gathin.tvhome;
 
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -12,6 +13,7 @@ import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.LinearInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -61,6 +63,15 @@ final class WallpaperPlayer {
     private final String latitude, longitude;
     private LocalDate sunDay;
     private int[] sun;
+    /**
+     * wallpaper_motion: one slow loop of zoom and drift ("Ken Burns"), driven by a single animator that only moves the
+     * picture's RenderNode (scale and translation), so the bitmap is never redrawn. Null when off.
+     */
+    private final ValueAnimator motion;
+    /** One loop, there and back, in milliseconds. Slow enough that the movement is felt rather than seen. */
+    private static final long MOTION_LOOP_MS = 90_000L;
+    /** The picture is zoomed in this much at the start of the loop and this much more at its far end. */
+    private static final float MOTION_ZOOM_MIN = 1.06f, MOTION_ZOOM_MAX = 1.14f;
 
     WallpaperPlayer(Context context, FrameLayout root, Config config) {
         this.root = root;
@@ -96,6 +107,38 @@ final class WallpaperPlayer {
                     ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
             showFirst();
         }
+        motion = config.wallpaperMotion && config.wallpaperEnabled && !files.isEmpty() ? makeMotion() : null;
+    }
+
+    /**
+     * A sine-shaped loop: zoom from MOTION_ZOOM_MIN to MOTION_ZOOM_MAX and drift across a third of the margin the zoom
+     * opens, then back, so the picture never shows an edge and never jumps when the loop restarts.
+     */
+    private ValueAnimator makeMotion() {
+        image.setPivotX(width / 2f);
+        image.setPivotY(height / 2f);
+        ValueAnimator animator = ValueAnimator.ofFloat(0f, 1f);
+        animator.setDuration(MOTION_LOOP_MS);
+        animator.setRepeatCount(ValueAnimator.INFINITE);
+        animator.setRepeatMode(ValueAnimator.RESTART);
+        animator.setInterpolator(new LinearInterpolator());
+        animator.addUpdateListener(a -> {
+            double phase = 2 * Math.PI * (float) a.getAnimatedValue();
+            float zoom = MOTION_ZOOM_MIN + (MOTION_ZOOM_MAX - MOTION_ZOOM_MIN) * (float) (0.5 - 0.5 * Math.cos(phase));
+            // The zoom leaves (zoom - 1) / 2 of the screen hidden on each side; drift inside a third of the smallest one.
+            float marginX = width * (MOTION_ZOOM_MIN - 1f) / 2f, marginY = height * (MOTION_ZOOM_MIN - 1f) / 2f;
+            image.setScaleX(zoom);
+            image.setScaleY(zoom);
+            image.setTranslationX((float) (marginX * 0.8 * Math.sin(phase)));
+            image.setTranslationY((float) (marginY * 0.5 * Math.sin(2 * phase)));
+        });
+        return animator;
+    }
+
+    private void startMotion() {
+        if (motion == null || current == null) return;
+        if (motion.isPaused()) motion.resume();
+        else if (!motion.isStarted()) motion.start();
     }
 
     /**
@@ -131,15 +174,18 @@ final class WallpaperPlayer {
     void start() {
         active = true;
         update();
+        startMotion();
     }
 
     void stop() {
         active = false;
+        if (motion != null && motion.isRunning()) motion.pause();
     }
 
     /** Drops the wallpaper texture when Home is hidden and Android asks the process to free memory. */
     void releaseForMemoryPressure() {
         if (current == null) return;
+        if (motion != null) motion.cancel();
         image.setImageDrawable(null);
         // The renderer may still have a queued frame that references this hardware bitmap. Drop our references and
         // let Android reclaim its native buffer after rendering releases it instead of recycling it mid-frame.
@@ -162,6 +208,7 @@ final class WallpaperPlayer {
     void close() {
         active = false;
         closed = true;
+        if (motion != null) motion.cancel();
         decoder.shutdownNow();
     }
 
@@ -267,6 +314,8 @@ final class WallpaperPlayer {
         root.setBackground(null);
         image.setImageBitmap(bitmap);
         if (old != null && old != bitmap) image.postDelayed(old::recycle, 500);
+        // A picture back after releaseForMemoryPressure (the animator was cancelled there) moves again.
+        if (active) startMotion();
     }
 
     private Bitmap decode(File file) {

@@ -6,6 +6,7 @@
 
   "wallpaper": true,
   "wallpaper_rotation_minutes": 30,
+  "wallpaper_motion": true,
   "wallpaper_order": "shuffle",
   "wallpaper_true_color": true,
   "wallpaper_dim": 15,
