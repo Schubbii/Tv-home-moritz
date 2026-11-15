@@ -25,11 +25,36 @@ Was du bekommst:
 
 - Einen Computer im **selben Netzwerk** wie der TV, mit **Python 3** und **git**.
 - Für die APK **eins** davon:
-  - **A)** nichts – die APK aus GitHub Actions herunterladen (siehe Schritt 4), oder
+  - **A)** nichts – die APK aus GitHub Actions herunterladen (siehe Schritt 5), oder
   - **B)** Docker (`tools/docker-build.sh`), oder
   - **C)** JDK 17–22 und Android SDK Platform 34 + Build-Tools 34.
 
 Alle Befehle laufen im Repo-Ordner. Windows: Jedes `.sh`-Skript hat einen `.ps1`-Zwilling.
+
+### Statt Computer: Android-Handy mit Termux
+
+Geht mit **Termux** (aus F-Droid, nicht die veraltete Play-Store-Version), Handy im selben WLAN.
+iPhone geht nicht (Termius ist nur ein SSH-Client, keine lokale Linux-Umgebung).
+
+1. Im Handy-Browser bei GitHub angemeldet herunterladen:
+   - Code: `https://github.com/Schubbii/Tv-home-moritz/archive/refs/heads/ccr-76c7c944-szajg6.zip`
+   - APK: Repo → Actions → „Launcher-APK bauen“ → letzter grüner Lauf → **tvhome-apk**
+2. In Termux:
+
+```bash
+pkg update && pkg install python python-cryptography unzip
+termux-setup-storage                                   # Zugriff auf "Downloads" erlauben
+cd ~ && unzip ~/storage/downloads/Tv-home-moritz-ccr-76c7c944-szajg6.zip
+mv Tv-home-moritz-ccr-76c7c944-szajg6 Tv-home-moritz && cd Tv-home-moritz
+chmod +x tools/*.sh launcher/*.sh
+python -m venv --system-site-packages tools/venv
+tools/venv/bin/pip install adb-shell==0.4.4 rsa==4.9.1
+mkdir -p launcher/app/build/outputs/apk/release
+unzip ~/storage/downloads/tvhome-apk.zip -d launcher/app/build/outputs/apk/release/
+```
+
+Danach ab Schritt 1 weiter, aber Schritt 2 **ohne** die Zeilen `git clone` und `python3 -m venv …`,
+und in Schritt 5 immer mit `SKIP_BUILD=1`. Termux während der Befehle im Vordergrund lassen.
 
 ## 1. TV vorbereiten
 
