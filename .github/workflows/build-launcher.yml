@@ -1,0 +1,48 @@
+name: Launcher-APK bauen
+
+# Baut den Launcher bei jedem Push und auf Knopfdruck (Actions -> "Launcher-APK bauen" -> Run workflow).
+# Die fertige APK liegt danach unter "Artifacts" als tvhome-apk zum Herunterladen.
+
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: android-actions/setup-android@v3
+        with:
+          packages: platforms;android-34 build-tools;34.0.0
+      # Optional: ein fester Signaturschluessel, damit spaetere APKs sich ueber die installierte legen lassen.
+      # Secret DEBUG_KEYSTORE_BASE64 = base64 einer debug.keystore (Passwort "android", Alias "androiddebugkey").
+      # Ohne Secret signiert jeder Lauf mit einem neuen Schluessel (siehe README, "Updates").
+      - name: Signaturschluessel aus Secret
+        env:
+          KEYSTORE_B64: ${{ secrets.DEBUG_KEYSTORE_BASE64 }}
+        if: env.KEYSTORE_B64 != ''
+        run: |
+          mkdir -p ~/.android
+          printf '%s' "$KEYSTORE_B64" | base64 -d > ~/.android/debug.keystore
+      - name: Unit-Tests und Release-Build
+        working-directory: launcher
+        run: |
+          chmod +x gradlew
+          ./gradlew --no-daemon testReleaseUnitTest assembleRelease
+      - name: Groesse anzeigen
+        run: |
+          size=$(stat -c %s launcher/app/build/outputs/apk/release/app-release.apk)
+          echo "APK: $((size / 1024)) KB"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tvhome-apk
+          path: launcher/app/build/outputs/apk/release/app-release.apk
+          retention-days: 30

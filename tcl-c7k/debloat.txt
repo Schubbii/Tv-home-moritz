@@ -1,0 +1,86 @@
+# TCL C7K QD-Mini LED, Google TV 14 (device G08, model "Smart TV Pro", MediaTek), German/EU firmware
+# Built from the tested CleanYourTV lists for the same board and firmware (UTT2.250416.001 AU02):
+#   examples/tcl-55c7k-uk (55C7K UK, 50C7K Poland, C6K Brazil, 85C81K NL ...) and examples/tcl-65c7k-google-tv
+#   https://github.com/Gathin23/cleanyourtv/tree/main/examples
+#
+# Apply:   TV_HOST=<tv ip> tools/disable.sh tcl-c7k/debloat.txt
+# Undo:    TV_HOST=<tv ip> tools/restore.sh tcl-c7k/debloat.txt com.google.android.apps.tv.launcherx
+# Everything is DISABLED, not uninstalled. Comment out (#) any line you want to keep,
+# remove the # in front of a line under "Optional" to disable that app too.
+#
+# Stock launcher: com.google.android.apps.tv.launcherx (disabled later by launcher/build-and-install.sh).
+# Live TV / HDMI app: com.tcl.tv.
+# NEVER disable: com.tcl.tv, com.tcl.tvinput, com.tcl.suspension (source panel of the Input button),
+# com.tcl.dashboard, com.tcl.autopair, com.tcl.systemserver, com.tcl.providers.config, com.tcl.initsetup,
+# com.tcl.useragreement, com.tcl.globalkeyoverlay, com.tcl.systemui.plugin, com.tcl.inputmethod.international
+# (keyboard), com.tcl.eva, com.tcl.hearaid, all com.mediatek.* system services, com.dolby.*,
+# com.google.android.tv.remote.service (mic button of the remote), Play Store, Play Services.
+#
+# Firmware updates: com.tcl.ttvs is the firmware updater on this build AND carries Samba TV ACR (viewing
+# tracking). It is kept here so the TV still gets updates. To stop the tracking without losing updates,
+# switch off "Viewing information services" / Samba TV in the TV's privacy settings. If you disable it
+# anyway (uncomment the line below), re-enable it before checking for an update: pm enable com.tcl.ttvs
+
+# --- TCL tracking and analytics ---
+com.tcl.logkit                         # log capture and upload
+com.tcl.usercenter                     # TCL account sign-in nags
+com.google.android.feedback            # Google feedback upload
+com.android.tv.feedbackconsent         # feedback consent dialog
+# com.tcl.ttvs                         # Samba TV ACR + TCL analytics, BUT also the firmware updater (see above)
+
+# --- TCL content, ads and promos ---
+com.tcl.channelplus                    # TCL Channel / TCL Live (FAST channels with ads)
+com.tcl.tv.tclhome_passive             # pushes TCL content to the home screen at boot
+com.tcl.partnercustomizer              # TCL tweaks to the Google TV home rows
+com.tcl.interactive                    # TCL TIAS background service
+com.tcl.messagebox                     # TCL push messages and promos
+com.tcl.waterfall.overseas             # TCL movie/show recommendation browser
+
+# --- Retail demo / hotel mode ---
+com.tcl.exhibit                        # store demo mode switcher
+com.tcl.esticker                       # store / soundbar demo
+com.tcl.hotelmenu                      # hotel mode (not on every unit)
+
+# --- Preloaded apps and services ---
+com.tcl.ocean.instructions             # e-manual
+com.tcl.repairguide                    # repair guide
+com.tcl.smartalexa                     # Alexa
+com.tcl.guard                          # TCL "cleaner" / app manager
+android.autoinstalls.config.google.gtvpai   # silently installs partner apps
+com.google.android.partnersetup        # partner attribution
+com.google.android.play.games          # Play Games
+
+# --- Optional: disable only if nobody in the household uses it (remove the #) ---
+# com.google.android.katniss           # Google Assistant voice search (mic button)
+# com.google.android.apps.mediashell   # Chromecast / Google Cast
+# com.tcl.airplay2                     # AirPlay, together with the next two lines
+# com.mediatek.AirplayAPK
+# com.mediatek.airplaydaemon
+# com.tcl.miracast                     # Miracast screen mirroring
+# com.tcl.magiconnectfree              # TCL T-Cast / Magiconnect phone mirroring
+# com.tcl.gamebar                      # game bar / VRR overlay for consoles
+# com.tcl.ui_mediaCenter               # USB media player
+# com.tcl.gallery                      # USB photo gallery + TCL screensaver
+# com.tcl.t_solo                       # T-Solo (Bluetooth headphones while the speakers stay off)
+# com.tcl.UpdatePeripheral             # TCL soundbar firmware updates
+# com.google.android.youtube.tvmusic   # YouTube Music
+# com.google.android.videos            # Google TV movies & shows
+# com.netflix.ninja                    # Netflix, together with the next line
+# com.netflix.tokenmanager
+# com.amazon.amazonvideo.livingroom    # Prime Video
+# com.google.android.youtube.tv        # YouTube
+# Android Privacy Sandbox (ad measurement), disabled on a 50C71K and 85C81K on this build:
+# com.android.adservices.api
+# com.android.federatedcompute.services
+# com.android.ondevicepersonalization.services
+
+# --- Second HOME candidate ---
+# With launcherx gone, setupwraith's RecoveryActivity claims HOME (blank screen), so it goes now,
+# while launcherx still owns Home. If the saved Wi-Fi network belongs to setupwraith, disable.sh skips it:
+# forget the network in Settings and join it again first (see README, step 3).
+com.google.android.tungsten.setupwraith
+
+# --- Not in this list on purpose ---
+# com.google.android.apps.tv.launcherx  -> disabled by launcher/build-and-install.sh once the new launcher is Home
+# com.google.android.apps.tv.dreamx     -> Google ambient screensaver (promos); disable only AFTER the screensaver
+#                                          is switched to the launcher's clock (README, step 6)
