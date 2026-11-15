@@ -70,7 +70,7 @@ Auf dem C7K öffnet USB-Debugging allein schon den Netzwerk-Port 5555.
 git clone https://github.com/Schubbii/Tv-home-moritz && cd Tv-home-moritz
 python3 -m venv tools/venv && tools/venv/bin/pip install -r tools/requirements.txt
 export TV_HOST=192.168.1.50          # deine TV-IP
-PY="tools/venv/bin/python -I"
+PY="tools/venv/bin/python -I"      # Mac (zsh): stattdessen  PY=(tools/venv/bin/python -I)
 
 $PY tools/tv.py --probe              # auf dem TV "USB-Debugging zulassen?" bestätigen
 mkdir -p backup
