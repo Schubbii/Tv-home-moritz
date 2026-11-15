@@ -79,4 +79,16 @@
     <string name="wallpaper_none">Kein Hintergrund</string>
     <string name="wallpaper_applied">Hintergrund geändert</string>
     <string name="wallpaper_theme_default">Design-Standard</string>
+    <string name="upload_row">Hintergründe vom Handy oder Internet hinzufügen</string>
+    <string name="upload_title">Hintergründe hinzufügen</string>
+    <string name="upload_hint">Öffne auf dem Handy oder Laptop (im selben WLAN) diese Adresse im Browser:</string>
+    <string name="upload_waiting">Warte auf Bilder…</string>
+    <string name="upload_done">Gespeichert und als Hintergrund gesetzt.</string>
+    <string name="upload_failed">Hat nicht geklappt: %1$s</string>
+    <string name="upload_count">Eigene Bilder: %1$d</string>
+    <string name="upload_delete_all">Alle eigenen Bilder löschen</string>
+    <string name="upload_delete_confirm">Alle vom Handy hinzugefügten Bilder löschen?</string>
+    <string name="upload_back">Zurück schließt diese Seite.</string>
+    <string name="upload_no_server">Die Upload-Seite konnte nicht gestartet werden.</string>
+    <string name="upload_no_network">Keine Netzwerkverbindung</string>
 </resources>

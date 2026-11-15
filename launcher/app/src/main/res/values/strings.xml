@@ -158,4 +158,16 @@
     <string name="clock_format_system">System</string>
     <string name="clock_format_12">12-hour</string>
     <string name="clock_format_24">24-hour</string>
+    <string name="upload_row">Add wallpapers from phone or web</string>
+    <string name="upload_title">Add wallpapers</string>
+    <string name="upload_hint">On a phone or laptop in the same Wi-Fi, open this address in the browser:</string>
+    <string name="upload_waiting">Waiting for pictures…</string>
+    <string name="upload_done">Saved and set as wallpaper.</string>
+    <string name="upload_failed">Did not work: %1$s</string>
+    <string name="upload_count">Own pictures: %1$d</string>
+    <string name="upload_delete_all">Delete all own pictures</string>
+    <string name="upload_delete_confirm">Delete all pictures added from the phone?</string>
+    <string name="upload_back">Back closes this screen and the page.</string>
+    <string name="upload_no_server">Could not open the upload page.</string>
+    <string name="upload_no_network">No network connection</string>
 </resources>

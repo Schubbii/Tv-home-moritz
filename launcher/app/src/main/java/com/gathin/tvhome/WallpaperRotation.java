@@ -35,6 +35,18 @@ final class WallpaperRotation {
         return result;
     }
 
+    /**
+     * Every picture the launcher can show from its files folder: the ones added from a phone
+     * ({@code eigene/}, which theme pushes never clear) first, then the theme's {@code wallpapers/}.
+     */
+    static List<File> collection(File dir) {
+        List<File> result = new ArrayList<>();
+        if (dir == null) return result;
+        result.addAll(images(new File(dir, WallpaperUploadActivity.OWN_DIR)));
+        result.addAll(images(new File(dir, "wallpapers")));
+        return result;
+    }
+
     static File find(List<File> images, String name) {
         for (File image : images) if (image.getName().equals(name)) return image;
         return null;

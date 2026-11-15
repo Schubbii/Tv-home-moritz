@@ -304,3 +304,8 @@ Original-Angaben:
 >
 > - `wallpaper.jpg`: Dark blue-green OLED gradient backdrop designed for the cinematic theme. Created by Lukáš Rücker (@RuckieOfficial), released under CC0 1.0 Universal (Public Domain Dedication): https://creativecommons.org/publicdomain/zero/1.0/
 
+## Eigene Bilder des Besitzers
+
+- `natur-13-blaetter-im-regen.jpg`, `natur-14-funkien-blaetter.jpg`, `natur-15-palmenwedel.jpg`,
+  `nacht-01-sternspuren.jpg`: vom Besitzer des TVs bereitgestellt, auf 16:9 (1920x1080) zugeschnitten.
+  Nur für die private Nutzung auf diesem TV.

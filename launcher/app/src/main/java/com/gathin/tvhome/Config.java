@@ -703,14 +703,14 @@ final class Config {
         if (!WallpaperRotation.validOrder(wallpaperOrder)) wallpaperOrder = WallpaperRotation.ORDER_SHUFFLE;
         List<File> wallpapers = new ArrayList<>();
         if (rotationMinutes > 0 && dir != null && wallpaperEnabled) {
-            wallpapers.addAll(WallpaperRotation.images(new File(dir, "wallpapers")));
+            wallpapers.addAll(WallpaperRotation.collection(dir));
         }
         if (wallpapers.isEmpty() && wallpaper != null) wallpapers.add(wallpaper);
         // An on-TV wallpaper pick overrides the theme: a filename from the wallpapers/
         // collection, or "none". Unset means the theme decides (off by default).
         String wallpaperChoice = choices.getString(WALLPAPER_CHOICE_KEY, null);
         List<File> chosen = WallpaperRotation.chosen(dir == null ? Collections.emptyList()
-                : WallpaperRotation.images(new File(dir, "wallpapers")), wallpaper, wallpaperChoice);
+                : WallpaperRotation.collection(dir), wallpaper, wallpaperChoice);
         if (chosen != null) {
             wallpapers.clear();
             wallpapers.addAll(chosen);

@@ -125,6 +125,8 @@ public final class LauncherSettingsActivity extends Activity {
         }
         wallpaperChoice = findViewById(R.id.wallpaperChoice);
         wallpaperChoice.setOnClickListener(v -> showWallpaperPicker());
+        findViewById(R.id.uploadChoice).setOnClickListener(v -> startActivityForResult(
+                new Intent(this, WallpaperUploadActivity.class), UPLOAD_REQUEST));
         animationsChoice = findViewById(R.id.animationsChoice);
         animationsChoice.setOnClickListener(v -> {
             animations = !animations;
@@ -185,8 +187,7 @@ public final class LauncherSettingsActivity extends Activity {
 
     private void showWallpaperPicker() {
         File dir = Config.dir(this);
-        List<File> images = new java.util.ArrayList<>(WallpaperRotation.images(
-                dir == null ? null : new File(dir, "wallpapers")));
+        List<File> images = new java.util.ArrayList<>(WallpaperRotation.collection(dir));
         // A theme with a single wallpaper.jpg offers that picture too (Config maps the choice back to it).
         File single = dir == null ? null : new File(dir, Config.WALLPAPER_NAME);
         if (single != null && single.isFile()) images.add(0, single);
@@ -270,6 +271,18 @@ public final class LauncherSettingsActivity extends Activity {
      * A choice was saved. Home rebuilds when it next resumes because the change count moved, whether these
      * settings are left with Back or with the remote's Home button (which cancels the activity result).
      */
+    private static final int UPLOAD_REQUEST = 7;
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == UPLOAD_REQUEST && resultCode == RESULT_OK) {
+            // The upload screen already moved the settings revision; pass the change on to Home.
+            setResult(RESULT_OK);
+            refresh();
+        }
+    }
+
     private void changed() {
         setResult(RESULT_OK);
         choices.edit().putLong(Config.SETTINGS_REVISION_KEY,
