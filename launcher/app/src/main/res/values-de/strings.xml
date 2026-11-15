@@ -74,4 +74,9 @@
     <string name="clock_format_system">System</string>
     <string name="clock_format_12">12 Stunden</string>
     <string name="clock_format_24">24 Stunden</string>
+    <string name="wallpaper_label">Hintergrund</string>
+    <string name="wallpaper_state">Hintergrund: %1$s</string>
+    <string name="wallpaper_none">Kein Hintergrund</string>
+    <string name="wallpaper_applied">Hintergrund geändert</string>
+    <string name="wallpaper_theme_default">Design-Standard</string>
 </resources>

@@ -190,33 +190,24 @@ public final class LauncherSettingsActivity extends Activity {
         // A theme with a single wallpaper.jpg offers that picture too (Config maps the choice back to it).
         File single = dir == null ? null : new File(dir, Config.WALLPAPER_NAME);
         if (single != null && single.isFile()) images.add(0, single);
-        String[] labels = new String[images.size() + 1];
-        for (int i = 0; i < images.size(); i++) labels[i] = images.get(i).getName();
-        labels[images.size()] = getString(R.string.wallpaper_none);
         String current = choices.getString(Config.WALLPAPER_CHOICE_KEY, null);
         int checked = "none".equals(current) ? images.size()
                 : indexOf(images, current);
-        new AlertDialog.Builder(this)
-                .setTitle(R.string.wallpaper_label)
-                .setSingleChoiceItems(labels, checked, (dialog, which) -> {
-                    dialog.dismiss();
-                    if (which == images.size()) {
-                        choices.edit().putString(Config.WALLPAPER_CHOICE_KEY, "none").apply();
-                    } else {
-                        choices.edit().putString(Config.WALLPAPER_CHOICE_KEY,
-                                images.get(which).getName()).apply();
-                    }
-                    changed();
-                    Toast.makeText(this, R.string.wallpaper_applied, Toast.LENGTH_SHORT).show();
-                    refresh();
-                })
-                .setNeutralButton(R.string.wallpaper_theme_default, (dialog, which) -> {
-                    choices.edit().remove(Config.WALLPAPER_CHOICE_KEY).apply();
-                    changed();
-                    refresh();
-                })
-                .setNegativeButton(android.R.string.cancel, null)
-                .show();
+        WallpaperGrid.show(this, images, checked, which -> {
+            if (which == images.size()) {
+                choices.edit().putString(Config.WALLPAPER_CHOICE_KEY, "none").apply();
+            } else {
+                choices.edit().putString(Config.WALLPAPER_CHOICE_KEY,
+                        images.get(which).getName()).apply();
+            }
+            changed();
+            Toast.makeText(this, R.string.wallpaper_applied, Toast.LENGTH_SHORT).show();
+            refresh();
+        }, () -> {
+            choices.edit().remove(Config.WALLPAPER_CHOICE_KEY).apply();
+            changed();
+            refresh();
+        });
     }
 
     /** Off, then every app with a TV entry point by name. Saved at once; it is read on the next boot. */

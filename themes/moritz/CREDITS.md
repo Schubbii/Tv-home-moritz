@@ -4,6 +4,63 @@ Alle Bilder stammen aus Themes von https://github.com/Gathin23/cleanyourtv/tree/
 und stehen unter ihren eigenen Lizenzen (unten je Quelle), nicht unter der MIT-Lizenz des Codes.
 Nur die Dateinamen wurden geändert (Kategorie + Bildname).
 
+## anime-landschaft (Theme `twilight`)
+- `anime-landschaft-01-mount-fuji-twilight.jpg` = `twilight/wallpapers/01-fuji-twilight.jpg`
+- `anime-landschaft-02-seaside-coastal-train.jpg` = `twilight/wallpapers/02-coastal-train.jpg`
+- `anime-landschaft-03-ancient-stone-arch.jpg` = `twilight/wallpapers/03-ancient-arch.jpg`
+
+Original-Angaben:
+
+> # twilight wallpapers
+>
+> These three pictures are AI-generated landscape illustrations made with Google Gemini / Imagen, not drawn or photographed.
+>
+> - `01-fuji-twilight.jpg`: Mount Fuji twilight, original digital illustration generated for this theme, CC0 1.0.
+> - `02-coastal-train.jpg`: Seaside coastal train, original digital illustration generated for this theme, CC0 1.0.
+> - `03-ancient-arch.jpg`: Ancient stone arch overlooking the ocean, original digital illustration generated for this theme, CC0 1.0.
+>
+> All three pictures were generated with Google Gemini / Imagen from text prompts for this theme, by [Khushmansingh](https://github.com/Khushmansingh). The prompts named no existing character, director, or work and used no reference image. They are original anime-style scenery illustrations, checked by eye, sized to 1920x1080 JPEG under 300 KB each. They are released under CC0 1.0 (Public Domain Dedication): https://creativecommons.org/publicdomain/zero/1.0/
+
+## anime-landschaft (Theme `retro`)
+- `anime-landschaft-04-wolkenturm.jpg` = `retro/wallpapers/6am_4pm.jpg`
+- `anime-landschaft-05-unter-der-bruecke.jpg` = `retro/wallpapers/4pm_9pm.jpg`
+- `anime-landschaft-06-nacht-am-hafen.jpg` = `retro/wallpapers/9pm_6am.jpg`
+
+Original-Angaben:
+
+>
+> # retro wallpapers
+>
+> All three pictures (6am_4pm.jpg, 4pm_9pm.jpg, 9pm_6am.jpg) were created by the theme author,
+> REGT-URRED, with AI image tools; they use no third-party material. They are released under
+> CC0 1.0 (public domain), so the repository can redistribute them alongside its MIT licence:
+> https://creativecommons.org/publicdomain/zero/1.0/
+
+## anime-figuren (Theme `weeb`)
+- `anime-figuren-01-amber-demon.jpg` = `weeb/wallpapers/01-amber-demon.jpg`
+- `anime-figuren-02-blue-fighter.jpg` = `weeb/wallpapers/02-blue-fighter.jpg`
+- `anime-figuren-03-crimson-swordsman.jpg` = `weeb/wallpapers/03-crimson-swordsman.jpg`
+- `anime-figuren-04-teal-ninja.jpg` = `weeb/wallpapers/04-teal-ninja.jpg`
+- `anime-figuren-05-violet-blade.jpg` = `weeb/wallpapers/05-violet-blade.jpg`
+
+Original-Angaben:
+
+> # weeb wallpapers
+>
+> These five pictures are AI-generated (Google Gemini), not drawn or photographed.
+>
+> - `01-amber-demon.jpg`
+> - `02-blue-fighter.jpg`
+> - `03-crimson-swordsman.jpg`
+> - `04-teal-ninja.jpg`
+> - `05-violet-blade.jpg`
+>
+> All five pictures were generated with Google Gemini from text prompts for this theme, by
+> [Shivamingale3](https://github.com/Shivamingale3). The prompts named no existing character or work and used no
+> reference image. They are original designs, checked by eye for resemblance, and were only resized and placed on
+> black afterwards. Gemini's small sparkle mark is still in each file. They are released under CC0 1.0, as far as
+> the generated pictures carry any rights to release: https://creativecommons.org/publicdomain/zero/1.0/
+
 ## natur (Theme `nature-calm`)
 - `natur-01-misty-karst-valley-at-sunrise.jpg` = `nature-calm/wallpapers/001.jpg`
 - `natur-02-autumn-reflections-loch-tummel.jpg` = `nature-calm/wallpapers/002.jpg`
@@ -15,7 +72,7 @@ Nur die Dateinamen wurden geändert (Kategorie + Bildname).
 - `natur-08-green-forest-with-sunbeams.jpg` = `nature-calm/wallpapers/008.jpg`
 - `natur-09-mossy-forest-lierneux-belgium.jpg` = `nature-calm/wallpapers/009.jpg`
 - `natur-10-misty-rainforest-lake-khao-sok.jpg` = `nature-calm/wallpapers/010.jpg`
-- `natur-11-misty-river-dawn-cherkasy.jpg` = `nature-calm/wallpapers/011.jpg`
+- `natur-11-misty-river.jpg` = `nature-calm/wallpapers/011.jpg`
 - `natur-12-kuang-si-turquoise-pool-laos.jpg` = `nature-calm/wallpapers/012.jpg`
 
 Original-Angaben:
@@ -171,76 +228,6 @@ Original-Angaben:
 >
 > These photos keep their own licences above (CC BY-SA 4.0, CC BY 4.0, CC BY-SA 2.0), not the repository's MIT licence.
 
-## gewitter (Theme `storm`)
-- `gewitter-01-lightning-strike-north-texas.jpg` = `storm/wallpapers/001.jpg`
-- `gewitter-02-lightning-ahead-of-a-shelf.jpg` = `storm/wallpapers/002.jpg`
-- `gewitter-03-three-strikes-in-one-exposure.jpg` = `storm/wallpapers/003.jpg`
-- `gewitter-04-thunderstorm-near-pritzerbe.jpg` = `storm/wallpapers/004.jpg`
-
-Original-Angaben:
-
-> Wallpaper photos from Wikimedia Commons (Quality and Featured pictures of lightning), cropped to 16:9, resized and
-> darkened under the clock and the dock for the TV:
->
-> - 001.jpg: "High Quality Lightning Strike" by Rollingskyphoto, CC BY 4.0
->   https://commons.wikimedia.org/wiki/File:High_Quality_Lightning_Strike.jpg
-> - 002.jpg: "Lightning with Shelf Cloud" by Rollingskyphoto, CC BY 4.0
->   https://commons.wikimedia.org/wiki/File:Lightning_with_Shelf_Cloud.jpg
-> - 003.jpg: "3 Near-Simultaneous Lightning Strikes on One Exposure" by Rollingskyphoto, CC BY 4.0
->   https://commons.wikimedia.org/wiki/File:3_Near-Simultaneous_Lightning_Strikes_on_One_Exposure.jpg
-> - 004.jpg: "Lightning Pritzerbe 01 (MK)" by Mathias Krumbholz, CC BY-SA 3.0
->   https://commons.wikimedia.org/wiki/File:Lightning_Pritzerbe_01_(MK).jpg
->
-> These photos keep their own licences above (CC BY 4.0, CC BY-SA 3.0), not the repository's MIT licence.
-
-## illustration (Theme `scenes`)
-- `illustration-01-dusk-peaks.jpg` = `scenes/wallpapers/01-dusk-peaks.jpg`
-- `illustration-02-golden-coast.jpg` = `scenes/wallpapers/02-golden-coast.jpg`
-- `illustration-03-moon-lake.jpg` = `scenes/wallpapers/03-moon-lake.jpg`
-- `illustration-04-aurora.jpg` = `scenes/wallpapers/04-aurora.jpg`
-- `illustration-05-dunes.jpg` = `scenes/wallpapers/05-dunes.jpg`
-- `illustration-06-above-the-clouds.jpg` = `scenes/wallpapers/06-above-the-clouds.jpg`
-- `illustration-07-mirror-lake.jpg` = `scenes/wallpapers/07-mirror-lake.jpg`
-- `illustration-08-tea-hills.jpg` = `scenes/wallpapers/08-tea-hills.jpg`
-- `illustration-09-alpenglow.jpg` = `scenes/wallpapers/09-alpenglow.jpg`
-- `illustration-10-city-lights.jpg` = `scenes/wallpapers/10-city-lights.jpg`
-- `illustration-11-balloon-sunrise.jpg` = `scenes/wallpapers/11-balloon-sunrise.jpg`
-- `illustration-12-monsoon.jpg` = `scenes/wallpapers/12-monsoon.jpg`
-- `illustration-13-lighthouse-coast.jpg` = `scenes/wallpapers/13-lighthouse-coast.jpg`
-- `illustration-14-autumn-valley.jpg` = `scenes/wallpapers/14-autumn-valley.jpg`
-
-> Im Original ohne eigene CREDITS-Datei: Teil des MIT-lizenzierten Repos (im Code erzeugt).
-
-## berge (Theme `ridgelines`)
-- `berge-01-first-light-over-the-ranges.jpg` = `ridgelines/wallpapers/01-first-light.jpg`
-- `berge-02-mist-in-the-valleys.jpg` = `ridgelines/wallpapers/02-valley-mist.jpg`
-- `berge-03-golden-hour-on-the-high-ridges.jpg` = `ridgelines/wallpapers/03-golden-hour.jpg`
-- `berge-04-dusk-magenta-to-indigo.jpg` = `ridgelines/wallpapers/04-dusk.jpg`
-- `berge-05-smoke-haze-in-late-summer.jpg` = `ridgelines/wallpapers/05-smoke-haze.jpg`
-- `berge-06-moonrise-over-the-far-peaks.jpg` = `ridgelines/wallpapers/06-moonrise.jpg`
-- `berge-07-a-clear-night-full-of-stars.jpg` = `ridgelines/wallpapers/07-starfield.jpg`
-- `berge-08-aurora-over-the-ridge.jpg` = `ridgelines/wallpapers/08-aurora-ridge.jpg`
-
-Original-Angaben:
-
-> The eight wallpapers are original illustrations drawn for CleanYourTV by `make_wallpapers.py`: ranges of
-> mountains in flat layers of colour, with mist in the valleys, in eight lights from first light to an aurora
-> night. They are made from code alone, with no photos, artwork, fonts or other third-party material, and are
-> released CC0 1.0.
->
-> - `01-first-light.jpg`: first light over the ranges, CC0 1.0
-> - `02-valley-mist.jpg`: mist in the valleys, CC0 1.0
-> - `03-golden-hour.jpg`: golden hour on the high ridges, CC0 1.0
-> - `04-dusk.jpg`: dusk, magenta to indigo, CC0 1.0
-> - `05-smoke-haze.jpg`: smoke haze in late summer, CC0 1.0
-> - `06-moonrise.jpg`: moonrise over the far peaks, CC0 1.0
-> - `07-starfield.jpg`: a clear night full of stars, CC0 1.0
-> - `08-aurora-ridge.jpg`: aurora over the ridge, CC0 1.0
->
-> Redraw them with `python3 make_wallpapers.py` (Pillow and NumPy); the same seeds give the same pictures.
->
-> CC0 1.0: https://creativecommons.org/publicdomain/zero/1.0/
-
 ## stockholm (Theme `stockholm`)
 - `stockholm-01-gryning-over-riddarfjarden.jpg` = `stockholm/wallpapers/01-gryning.jpg`
 - `stockholm-02-morgondis-vid-stadshuset.jpg` = `stockholm/wallpapers/02-morgondis.jpg`
@@ -270,22 +257,27 @@ Original-Angaben:
 >
 > CC0 1.0: https://creativecommons.org/publicdomain/zero/1.0/
 
-## anime-landschaft (Theme `twilight`)
-- `anime-landschaft-01-mount-fuji-twilight.jpg` = `twilight/wallpapers/01-fuji-twilight.jpg`
-- `anime-landschaft-02-seaside-coastal-train.jpg` = `twilight/wallpapers/02-coastal-train.jpg`
-- `anime-landschaft-03-ancient-stone-arch.jpg` = `twilight/wallpapers/03-ancient-arch.jpg`
+## gewitter (Theme `storm`)
+- `gewitter-01-lightning-strike-north-texas.jpg` = `storm/wallpapers/001.jpg`
+- `gewitter-02-lightning-ahead-of-a-shelf.jpg` = `storm/wallpapers/002.jpg`
+- `gewitter-03-three-strikes-in-one-exposure.jpg` = `storm/wallpapers/003.jpg`
+- `gewitter-04-thunderstorm-near-pritzerbe.jpg` = `storm/wallpapers/004.jpg`
 
 Original-Angaben:
 
-> # twilight wallpapers
+> Wallpaper photos from Wikimedia Commons (Quality and Featured pictures of lightning), cropped to 16:9, resized and
+> darkened under the clock and the dock for the TV:
 >
-> These three pictures are AI-generated landscape illustrations made with Google Gemini / Imagen, not drawn or photographed.
+> - 001.jpg: "High Quality Lightning Strike" by Rollingskyphoto, CC BY 4.0
+>   https://commons.wikimedia.org/wiki/File:High_Quality_Lightning_Strike.jpg
+> - 002.jpg: "Lightning with Shelf Cloud" by Rollingskyphoto, CC BY 4.0
+>   https://commons.wikimedia.org/wiki/File:Lightning_with_Shelf_Cloud.jpg
+> - 003.jpg: "3 Near-Simultaneous Lightning Strikes on One Exposure" by Rollingskyphoto, CC BY 4.0
+>   https://commons.wikimedia.org/wiki/File:3_Near-Simultaneous_Lightning_Strikes_on_One_Exposure.jpg
+> - 004.jpg: "Lightning Pritzerbe 01 (MK)" by Mathias Krumbholz, CC BY-SA 3.0
+>   https://commons.wikimedia.org/wiki/File:Lightning_Pritzerbe_01_(MK).jpg
 >
-> - `01-fuji-twilight.jpg`: Mount Fuji twilight, original digital illustration generated for this theme, CC0 1.0.
-> - `02-coastal-train.jpg`: Seaside coastal train, original digital illustration generated for this theme, CC0 1.0.
-> - `03-ancient-arch.jpg`: Ancient stone arch overlooking the ocean, original digital illustration generated for this theme, CC0 1.0.
->
-> All three pictures were generated with Google Gemini / Imagen from text prompts for this theme, by [Khushmansingh](https://github.com/Khushmansingh). The prompts named no existing character, director, or work and used no reference image. They are original anime-style scenery illustrations, checked by eye, sized to 1920x1080 JPEG under 300 KB each. They are released under CC0 1.0 (Public Domain Dedication): https://creativecommons.org/publicdomain/zero/1.0/
+> These photos keep their own licences above (CC BY 4.0, CC BY-SA 3.0), not the repository's MIT licence.
 
 ## abstrakt (Theme `glass-gallery`)
 - `abstrakt-01-tidal.jpg` = `glass-gallery/wallpapers/01-tidal.jpg`
@@ -305,7 +297,7 @@ Original-Angaben:
 > The generated images are dedicated to the public domain under [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/). The generator and configuration follow the repository's MIT licence. The screenshot shows the theme on a real Kenwood K32M15G6; it is not a generated interface mock-up.
 
 ## abstrakt-aurora.jpg (Theme `aurora`, `wallpaper.jpg`)
-> Teil des MIT-lizenzierten Repos.
+> Teil des MIT-lizenzierten Repos (im Code erzeugt).
 
 ## abstrakt-cinematic.jpg (Theme `cinematic`, `wallpaper.jpg`)
 > # Wallpaper Credits
