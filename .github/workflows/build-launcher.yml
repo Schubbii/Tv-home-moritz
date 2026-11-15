@@ -36,6 +36,10 @@ jobs:
         run: |
           chmod +x gradlew
           ./gradlew --no-daemon testReleaseUnitTest assembleRelease
+      - name: Signatur anzeigen
+        run: |
+          "$ANDROID_HOME/build-tools/34.0.0/apksigner" verify --print-certs \
+            launcher/app/build/outputs/apk/release/app-release.apk | grep -i 'SHA-256'
       - name: Groesse anzeigen
         run: |
           size=$(stat -c %s launcher/app/build/outputs/apk/release/app-release.apk)

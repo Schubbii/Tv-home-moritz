@@ -17,6 +17,17 @@ android {
         versionName '3.5-moritz.3'
     }
 
+    // One fixed key (launcher/signing/debug.keystore) for every build, here, in Docker and on GitHub, so a new
+    // APK always installs over the one on the TV.
+    signingConfigs {
+        fixed {
+            storeFile rootProject.file('signing/debug.keystore')
+            storePassword 'android'
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+        }
+    }
+
     buildTypes {
         release {
             // R8 strips and optimises the code (AndroidX included): smaller APK, faster start on a slow TV CPU.
@@ -24,7 +35,7 @@ android {
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             // Sideloaded over ADB, never published: sign with the debug key so it installs over a debug build.
-            signingConfig signingConfigs.debug
+            signingConfig signingConfigs.fixed
         }
     }
 
