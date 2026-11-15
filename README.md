@@ -99,7 +99,17 @@ in Schritt 4 `FORCE_SETUPWRAITH=1` voranstellen.
 
 ## 4. Abschalten (Debloat)
 
-Vorher `tcl-c7k/debloat.txt` durchsehen: Unter **„Optional“** stehen Apps, die standardmäßig
+**Welche Liste?** Das zeigt `--probe` aus Schritt 2:
+
+| `ro.build.version.sdk` | Firmware | Liste |
+|---|---|---|
+| 34 (Android 14) | `UTT2.250416.001` | `tcl-c7k/debloat.txt` |
+| 31 (Android 12) | `STT2.221228.001` | `tcl-c7k/debloat-android12.txt` |
+
+Die Android-12-Liste lässt `com.tcl.interactive` und `com.tcl.guard` an – auf dieser Firmware
+gehen sonst Quellenmenü bzw. Systemdienste kaputt. Unten in den Befehlen ggf. den Dateinamen tauschen.
+
+Vorher die Liste durchsehen: Unter **„Optional“** stehen Apps, die standardmäßig
 **bleiben** (Assistant, Chromecast, AirPlay, Netflix …). `#` entfernen = wird auch abgeschaltet.
 
 ```bash
@@ -132,6 +142,9 @@ $PY tools/tv.py "cmd appops set com.gathin.tvhome AUTO_START allow; cmd appops w
 # Ohne Tasten (Lautstärke-Halten bleibt normal):
 SKIP_BUILD=1 launcher/build-and-install.sh
 ```
+
+**Android 12:** Dort senden manche Tasten andere Codes (YouTube 4065, Zahnrad teils Scancode 233).
+Nach der Installation zusätzlich `tools/theme.sh tcl-c7k/tasten` ausführen.
 
 Die zweite Zeile im ersten Block sorgt dafür, dass die Tasten auch **nach einem Neustart** gehen.
 Das Skript schaltet die Google-TV-Startseite erst ab, wenn der neue Launcher sicher Home ist,

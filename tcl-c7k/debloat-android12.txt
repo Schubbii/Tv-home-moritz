@@ -1,0 +1,72 @@
+# TCL C7K, older EU firmware: Android 12, STT2.221228.001 (device G08, model "Smart TV Pro", MediaTek)
+# For this build ONLY. A C7K on Android 14 (UTT2.250416.001) uses debloat.txt in this folder.
+# Check with: tools/tv.py --probe  ->  ro.build.version.sdk = 31 and ro.build.display.id = STT2.221228.001
+#
+# Built from the tested CleanYourTV list for this build, examples/tcl-g08-eu-android12 (five units, among
+# them a 55C7K on STT2.221228.001 with the launcher as Home), keeping only the low-risk part.
+#   https://github.com/Gathin23/cleanyourtv/tree/main/examples/tcl-g08-eu-android12
+#
+# Apply:   TV_HOST=<tv ip> tools/disable.sh tcl-c7k/debloat-android12.txt
+# Undo:    TV_HOST=<tv ip> tools/restore.sh tcl-c7k/debloat-android12.txt com.google.android.apps.tv.launcherx
+# Everything is DISABLED, not uninstalled. Packages that are not on the TV are simply skipped.
+#
+# DO NOT DISABLE on this build (verified on real sets, see the list linked above):
+#   com.tcl.suspension  - source panel of the remote's Input key (key goes dead without it)
+#   com.tcl.interactive - TIAS service com.tcl.tv binds for the source/HbbTV overlay (error spam at ~10 Hz)
+#   com.tcl.ttvs        - same TIAS chain, teletext keyboard; also the firmware updater
+#   com.tcl.autopair    - Bluetooth remote pairing (a remote that unpairs could never pair again)
+#   com.tcl.guard       - disabled, the system retries its service every 5 seconds
+#   com.tcl.tv, com.tcl.tvinput, com.tcl.globalkeyoverlay, com.dolby.*, Play Store, Play Services
+
+# --- TCL logging, push messages, promos ---
+com.tcl.logkit                         # log collection and upload
+com.tcl.messagebox                     # TCL push messages and promos
+com.tcl.usercenter                     # TCL account sign-in nags
+com.tcl.channelplus                    # TCL Channel / TCL Live (FAST channels with ads)
+com.tcl.waterfall.overseas             # TCL movie/show recommendation browser
+com.tcl.partnercustomizer              # TCL tweaks to the Google TV home rows
+com.tcl.tv.tclhome_passive             # pushes TCL content to the home screen
+
+# --- Retail demo, help ---
+com.tcl.exhibit                        # store demo mode
+com.tcl.esticker                       # retail-demo sticker
+com.tcl.ocean.instructions             # onboarding/tips overlay, e-manual
+com.tcl.repairguide                    # repair guide
+
+# --- Preloads ---
+com.tcl.smartalexa                     # Alexa
+com.tcl.browser                        # TCL light browser (not on every unit)
+android.autoinstalls.config.google.gtvpai   # silently installs partner apps (disable.sh may skip it, that is fine)
+com.google.android.partnersetup        # partner attribution
+com.google.android.feedback            # bug-report / feedback sender
+com.google.android.play.games          # Play Games
+com.google.android.videos              # Google movie storefront
+
+# --- MediaTek telemetry leftovers (disabled on all five units of the reference list) ---
+com.mediatek.backgrounddetection
+
+# --- Optional: disable only if nobody uses it (remove the #) ---
+# com.google.android.katniss           # Google Assistant voice search (mic button)
+# com.tcl.eva                          # TCL voice layer (mic still works without it)
+# com.google.android.apps.mediashell   # Chromecast / Google Cast
+# com.tcl.airplay2                     # AirPlay, together with the next two lines
+# com.mediatek.AirplayAPK
+# com.mediatek.airplaydaemon
+# com.tcl.miracast                     # Miracast screen mirroring
+# com.tcl.magiconnectfree              # TCL MagiConnect / T-Cast
+# com.tcl.gamebar                      # game bar for consoles
+# com.tcl.ui_mediaCenter               # USB media player
+# com.tcl.gallery                      # USB photo gallery
+# com.tcl.t_solo                       # T-Solo (Bluetooth headphones)
+# com.tcl.hearaid                      # hearing aid audio
+# com.tcl.UpdatePeripheral             # TCL soundbar/peripheral firmware updates
+# com.google.android.youtube.tvmusic   # YouTube Music
+
+# --- Second HOME candidate ---
+# With launcherx gone, setupwraith claims Home (blank screen), so it goes now, while launcherx still owns Home.
+# If the saved Wi-Fi belongs to setupwraith, disable.sh skips it: forget and re-join the Wi-Fi first.
+com.google.android.tungsten.setupwraith
+
+# --- Not in this list on purpose ---
+# com.google.android.apps.tv.launcherx  -> disabled by launcher/build-and-install.sh once the new launcher is Home
+# com.google.android.apps.tv.dreamx     -> disable only AFTER the screensaver is switched to the launcher's clock

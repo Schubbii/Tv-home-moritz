@@ -252,6 +252,12 @@
         <item>4062:com.netflix.ninja</item>
         <item>190:com.google.android.youtube.tv</item>
         <item>4099:com.amazon.amazonvideo.livingroom</item>
+        <!-- C7K on the Android 12 firmware (STT2.221228.001): YouTube 4065 / scan 245, Disney+ scan 762,
+             gear scan 233 on some remotes (examples/tcl-g08-eu-android12). -->
+        <item>4065:com.google.android.youtube.tv</item>
+        <item>scan:245:com.google.android.youtube.tv</item>
+        <item>scan:762:com.disney.disneyplus</item>
+        <item>scan:233:settings</item>
     </string-array>
 
     <!-- Package of the stock launcher, for TVs whose firmware turns it back on after it was disabled. XGIMI's
