@@ -170,4 +170,18 @@
     <string name="upload_back">Back closes this screen and the page.</string>
     <string name="upload_no_server">Could not open the upload page.</string>
     <string name="upload_no_network">No network connection</string>
+    <string name="search_row">Search 4K wallpapers</string>
+    <string name="search_title">Search 4K wallpapers</string>
+    <string name="search_hint">e.g. autumn forest, mountains, anime city</string>
+    <string name="search_button">Search</string>
+    <string name="search_cat_general">General</string>
+    <string name="search_cat_anime">Anime</string>
+    <string name="search_cat_people">People</string>
+    <string name="search_start">Type a term and press Search. Empty search shows the most popular 4K wallpapers. Results from wallhaven.cc, only 3840x2160 or larger.</string>
+    <string name="search_loading">Searching…</string>
+    <string name="search_none">No 4K pictures found. Try English terms or another category.</string>
+    <string name="search_count">%1$d pictures (OK downloads and sets the wallpaper)</string>
+    <string name="search_downloading">Downloading %1$s…</string>
+    <string name="search_saved">Downloaded and set as wallpaper.</string>
+    <string name="search_failed">Did not work: %1$s</string>
 </resources>

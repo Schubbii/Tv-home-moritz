@@ -119,6 +119,12 @@
             android:text="@string/upload_row" />
 
         <TextView
+            android:id="@+id/searchChoice"
+            style="@style/SettingsRow"
+            android:layout_marginTop="10dp"
+            android:text="@string/search_row" />
+
+        <TextView
             android:id="@+id/animationsChoice"
             style="@style/SettingsRow"
             android:layout_marginTop="28dp" />

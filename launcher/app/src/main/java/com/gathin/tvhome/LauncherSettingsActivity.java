@@ -127,6 +127,8 @@ public final class LauncherSettingsActivity extends Activity {
         wallpaperChoice.setOnClickListener(v -> showWallpaperPicker());
         findViewById(R.id.uploadChoice).setOnClickListener(v -> startActivityForResult(
                 new Intent(this, WallpaperUploadActivity.class), UPLOAD_REQUEST));
+        findViewById(R.id.searchChoice).setOnClickListener(v -> startActivityForResult(
+                new Intent(this, WallpaperSearchActivity.class), UPLOAD_REQUEST));
         animationsChoice = findViewById(R.id.animationsChoice);
         animationsChoice.setOnClickListener(v -> {
             animations = !animations;

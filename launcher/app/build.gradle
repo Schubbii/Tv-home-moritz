@@ -13,8 +13,8 @@ android {
         applicationId providers.gradleProperty('launcherApplicationId').getOrElse('com.gathin.tvhome')
         minSdk 26
         targetSdk 34
-        versionCode 17
-        versionName '3.5-moritz.3'
+        versionCode 18
+        versionName '3.5-moritz.4'
     }
 
     // One fixed key (launcher/signing/debug.keystore) for every build, here, in Docker and on GitHub, so a new

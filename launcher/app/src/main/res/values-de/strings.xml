@@ -91,4 +91,18 @@
     <string name="upload_back">Zurück schließt diese Seite.</string>
     <string name="upload_no_server">Die Upload-Seite konnte nicht gestartet werden.</string>
     <string name="upload_no_network">Keine Netzwerkverbindung</string>
+    <string name="search_row">4K-Hintergründe suchen</string>
+    <string name="search_title">4K-Hintergründe suchen</string>
+    <string name="search_hint">z. B. autumn forest, mountains, anime city</string>
+    <string name="search_button">Suchen</string>
+    <string name="search_cat_general">Allgemein</string>
+    <string name="search_cat_anime">Anime</string>
+    <string name="search_cat_people">Menschen</string>
+    <string name="search_start">Begriff eingeben und Suchen drücken. Leere Suche zeigt die beliebtesten 4K-Hintergründe. Bilder von wallhaven.cc, nur 3840×2160 oder größer. Englische Begriffe finden mehr.</string>
+    <string name="search_loading">Suche läuft…</string>
+    <string name="search_none">Keine 4K-Bilder gefunden. Englische Begriffe oder eine andere Kategorie probieren.</string>
+    <string name="search_count">%1$d Bilder (OK lädt herunter und setzt den Hintergrund)</string>
+    <string name="search_downloading">Lade %1$s herunter…</string>
+    <string name="search_saved">Heruntergeladen und als Hintergrund gesetzt.</string>
+    <string name="search_failed">Hat nicht geklappt: %1$s</string>
 </resources>
